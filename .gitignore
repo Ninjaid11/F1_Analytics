@@ -1,0 +1,49 @@
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Виртуальное окружение
+.venv/
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Flask instance folder
+instance/
+
+# База данных
+*.db
+
+# Логи
+*.log
+
+# Секреты
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Static files
+staticfiles/
+
+# Сборки и пакеты
+build/
+dist/
+*.egg-info/
+
+# Docker volumes
+postgres_data/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Тесты
+.coverage
+htmlcov/
+test.py

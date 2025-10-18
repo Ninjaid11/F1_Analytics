@@ -1,0 +1,154 @@
+/* ===== Общие настройки ===== */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #0a0f24, #1b2a4a, #293f66);
+    background-size: 300% 300%;
+    animation: bgShift 10s ease infinite;
+    color: #fff;
+}
+
+@keyframes bgShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px #4fc3f7;
+}
+
+/* ===== Карточка формы ===== */
+.form-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 50px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    display: inline-block;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+/* ===== Списки выбора ===== */
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    background-color: rgba(255,255,255,0.9);
+    color: #222;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+select:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 10px #00b4d8;
+}
+
+/* ===== Кнопка ===== */
+button {
+    margin-top: 20px;
+    background: linear-gradient(90deg, #0077ff, #00b4d8);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #0099ff, #48cae4);
+}
+
+/* ===== Результат ===== */
+#result {
+    margin-top: 30px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    text-align: left;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    max-height: 300px;      /* ограничиваем высоту */
+    overflow-y: auto;       /* делаем прокручиваемым */
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+.loading {
+    color: #80dfff;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.analytics-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    margin-top: 40px;
+    display: inline-block;
+    max-width: 500px;
+    text-align: center;
+}
+
+#analyticsResult {
+    margin-top: 20px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    text-align: left;
+    max-height: 300px;
+    overflow-y: auto;
+    padding: 10px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+}
+
+#startAnalyticsBtn {
+    background: linear-gradient(90deg, #ff6b6b, #f06595);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#startAnalyticsBtn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #ff8787, #ff6b91);
+}
