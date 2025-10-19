@@ -20,6 +20,8 @@ class F1Compare:
         Compare two drivers based on their current season performance.
         Use emojis 🏎️🔥⚡️ to make it engaging and fun.
         - Give the answer in Russian.
+        Give answer whis humor.
+        Add photo this pilots.
         """
 
         user_prompt = f"""
