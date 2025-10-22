@@ -52,21 +52,18 @@ class F1AnalyticsApp:
 
         @self.app.get("/pilots")
         def get_pilots():
-            scraper: F1Scraper = self.app.state.scraper
-            pilots = scraper.get_pilots()
+            pilots = self.scraper.get_pilots()
             return pilots # {"title": "Турнирная таблица", "pilots": pilots}
 
         @self.app.get("/results")
         def get_results():
-            scraper: F1Scraper = self.app.state.scraper
-            results = scraper.get_results()
+            results = self.scraper.get_results()
             return {"title": "Last results", "results": results}
 
         @self.app.get("/analytics", response_model=None)
         async def get_analytics(db: AsyncSession = Depends(get_db_session)):
-            scraper: F1Scraper = self.app.state.scraper
-            pilots = scraper.get_pilots()
-            results = scraper.get_results()
+            pilots = self.scraper.get_pilots()
+            results = self.scraper.get_results()
 
             report_text = self.analytics.analyze_f1_data(pilots, results)
 
