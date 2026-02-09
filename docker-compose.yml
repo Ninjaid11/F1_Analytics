@@ -4,7 +4,6 @@ services:
   db:
     image: postgres:15
     container_name: f1_db
-    restart: always
     env_file:
       - .env
     environment:
@@ -14,7 +13,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5433:5432"
+      - "5432:5432"
 
   backend:
     build: .
