@@ -18,7 +18,6 @@ services:
   backend:
     build: .
     container_name: f1_backend
-    restart: always
     env_file:
       - .env
     depends_on:
