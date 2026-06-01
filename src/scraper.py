@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 from src.config import get_settings
 
 settings = get_settings()
@@ -7,32 +8,44 @@ settings = get_settings()
 class F1Scraper:
 
     @staticmethod
-    def get_pilots(url="https://www.formula1.com/en/results/2025/drivers"):
+    def get_pilots(url="https://www.formula1.com/en/results/2026/drivers"):
         response = requests.get(url)
+
         if response.status_code != 200:
             return []
 
         soup = BeautifulSoup(response.text, "html.parser")
-
-        first_names = soup.find_all("span", class_="max-lg:hidden")
-        last_names = soup.find_all("span", class_="max-md:hidden")
-        team_tags = soup.find_all("a", class_="flex gap-px-10")
-        points_tags = soup.find_all("td", class_="typography-module_body-s-semibold__O2lOH Table-module_cell__3rpTC Table-module_no-wrap-text__CP2oI Table-module_flush-right__0xoPP")
+        rows = soup.find_all("tr")
 
         data = []
         seen = set()
 
-        for i, (name, surname, team, pts) in enumerate(zip(first_names, last_names, team_tags, points_tags), 1):
-            full_name = f"{name.text.strip()} {surname.text.strip()}"
-            if full_name not in seen:
-                data.append({
-                    "№": i,
-                    "name": name.text.strip(),
-                    "surname": surname.text.strip(),
-                    "team": team.text.strip(),
-                    "PTS": pts.text.strip()
-                })
-                seen.add(full_name)
+        for row in rows:
+            cols = row.find_all("td")
+
+            if len(cols) >= 4:
+                driver_raw = cols[1].get_text(strip=True)
+                team = cols[3].get_text(strip=True)
+                pts = cols[4].get_text(strip=True)
+
+                # убираем код страны (ANT, RUS, NOR...)
+                driver_clean = re.sub(r"[A-Z]{3}$", "", driver_raw).strip()
+
+                parts = driver_clean.split(" ", 1)
+                name = parts[0]
+                surname = parts[1] if len(parts) > 1 else ""
+
+                full_name = f"{name} {surname}"
+
+                if full_name not in seen:
+                    data.append({
+                        "№": len(data) + 1,
+                        "name": name,
+                        "surname": surname,
+                        "team": team,
+                        "PTS": pts
+                    })
+                    seen.add(full_name)
 
         return data
 
