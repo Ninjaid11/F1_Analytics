@@ -1,5 +1,4 @@
 version: "3.9"
-
 services:
   db:
     image: postgres:15
@@ -13,7 +12,18 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "5433:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: f1_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5051:80"
+    depends_on:
+      - db
 
   backend:
     build: .
@@ -23,7 +33,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8000:8000"
+      - "8001:8000"
     volumes:
       - .:/app
     command: uvicorn src.main:f1_app.app --host 0.0.0.0 --port 8000 --reload
