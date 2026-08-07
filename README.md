@@ -5,10 +5,10 @@ A web application for analyzing and comparing Formula 1 drivers using FastAPI an
 ---
 
 ## ⚡ Features
-- 🏎 **Compare two F1 drivers** with a detailed report.  
-- 📊 **Race analytics and predictions** using the Gemini 2.5 Flash model.  
-- 🕸 **Scraping driver and race data** using BeautifulSoup.  
-- 💾 **PostgreSQL integration via Docker** for data storage.
+- **Compare two F1 drivers** with a detailed report.  
+- **Race analytics and predictions** using the Gemini 2.5 Flash model.  
+- **Scraping driver and race data** using BeautifulSoup.  
+- **PostgreSQL integration via Docker** for data storage.
 
 ---
 
@@ -37,7 +37,7 @@ DB_PASSWORD=yourpassword
 DB_HOST=db
 DB_PORT=5432
 DB_NAME=f1_db
-API_KEY=ваш_ключ
+API_KEY=your_key
 ```
 3️⃣ Build and run using Docker Compose:
 ```bash
@@ -48,8 +48,4 @@ docker compose up
 4️⃣ The application will be available at:
 http://localhost:8000
 
----
-## 📄 License
-
-**This project is licensed under the MIT License**
 ---
