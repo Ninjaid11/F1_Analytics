@@ -4,7 +4,7 @@ A web application for analyzing and comparing Formula 1 drivers using FastAPI an
 
 ---
 
-## ⚡ Features
+## Features
 - **Compare two F1 drivers** with a detailed report.  
 - **Race analytics and predictions** using the Gemini 2.5 Flash model.  
 - **Scraping driver and race data** using BeautifulSoup.  
@@ -12,7 +12,7 @@ A web application for analyzing and comparing Formula 1 drivers using FastAPI an
 
 ---
 
-## 🛠️ Technologies
+## Technologies
 - **Language**: Python 3.11  
 - **Backend**: FastAPI  
 - **Database**: PostgreSQL + SQLAlchemy  
@@ -22,15 +22,15 @@ A web application for analyzing and comparing Formula 1 drivers using FastAPI an
 
 ---
 
-## 🚀 Installation & Running
+## Installation & Running
 
-1️⃣ Clone the repository:
+1. Clone the repository:
 ```bash
 git clone https://github.com/Ninjaid11/F1_Analytics
 cd f1_analytics
 ```
 
-2️⃣ Create a .env file and fill it in:
+2. Create a .env file and fill it in:
 ```bash
 DB_USER=postgres
 DB_PASSWORD=yourpassword
@@ -39,13 +39,13 @@ DB_PORT=5432
 DB_NAME=f1_db
 API_KEY=your_key
 ```
-3️⃣ Build and run using Docker Compose:
+3. Build and run using Docker Compose:
 ```bash
 docker compose build
 docker compose up
 ```
 
-4️⃣ The application will be available at:
+4. The application will be available at:
 http://localhost:8000
 
 ---
